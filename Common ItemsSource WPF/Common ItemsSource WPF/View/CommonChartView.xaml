@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="Common_ItemsSource_WPF.CommonChartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Common_ItemsSource_WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:chart="http://schemas.syncfusion.com/wpf">
+
+    <Grid>
+
+        <Grid.DataContext>
+            <local:ViewModel/>
+        </Grid.DataContext>
+        
+        <!--Resources for the SeriesTemplateSelector case.-->
+        <!--<Grid.Resources>
+
+            <DataTemplate x:Key="columnSeriesTemplate">
+                <chart:ColumnSeries XBindingPath="Component" YBindingPath="Price" ItemsSource="{Binding PriceCollection}"
+                                    Label="{Binding Year}"/>
+            </DataTemplate>
+
+            <DataTemplate x:Key="lineSeriesTemplate" >
+                <chart:LineSeries XBindingPath="Component" YBindingPath="Price" ItemsSource="{Binding PriceCollection}"
+                                  Label="{Binding Year}"/>
+            </DataTemplate>
+
+        </Grid.Resources>-->
+
+        <local:SfChartExt Source="{Binding AnnualPriceCollection}" Margin="10" x:Name="sfChartExt">
+
+            <!--The SeriesTemplate is defined for generating the series.-->
+            <local:SfChartExt.SeriesTemplate>
+                <DataTemplate>
+                    <chart:ColumnSeries XBindingPath="Component" YBindingPath="Price" ItemsSource="{Binding PriceCollection}"
+                                        Label="{Binding Year}"/>
+                </DataTemplate>
+            </local:SfChartExt.SeriesTemplate>
+            
+            <!--The SeriesDataTemplateSelector is defined for generating the series.-->
+            <!--<local:SfChartExt.SeriesTemplateSelector>
+                <local:SeriesDataTemplateSelector ColumnSeriesTemplate="{StaticResource columnSeriesTemplate}"
+                                                  LineSeriesTemplate="{StaticResource lineSeriesTemplate}" />
+            </local:SfChartExt.SeriesTemplateSelector>-->
+
+            <local:SfChartExt.Header>
+                <TextBlock Text="Computer Accessories Price Statistics" FontSize="20" 
+                           FontFamily="TimesNewRoman" HorizontalAlignment="Center"/>
+            </local:SfChartExt.Header>
+
+            <local:SfChartExt.Legend>
+                <chart:ChartLegend/>
+            </local:SfChartExt.Legend>
+
+            <local:SfChartExt.PrimaryAxis>
+                <chart:CategoryAxis FontSize="14" LabelPlacement="BetweenTicks" >
+                    <chart:CategoryAxis.Header>
+                        <TextBlock Text="Components" FontSize="16"/>
+                    </chart:CategoryAxis.Header>
+                </chart:CategoryAxis>
+            </local:SfChartExt.PrimaryAxis>
+
+            <local:SfChartExt.SecondaryAxis>
+                <chart:NumericalAxis FontSize="14" >
+                    <chart:NumericalAxis.Header>
+                        <TextBlock Text="Price in US dollars" FontSize="16"/>
+                    </chart:NumericalAxis.Header>
+                </chart:NumericalAxis>
+            </local:SfChartExt.SecondaryAxis>
+
+        </local:SfChartExt>
+    </Grid>
+
+</UserControl>

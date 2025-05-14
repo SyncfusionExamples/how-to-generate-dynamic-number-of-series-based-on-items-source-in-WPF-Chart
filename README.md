@@ -284,4 +284,11 @@ The following column and line series (multiple series) are created as the result
 
 ![image](https://user-images.githubusercontent.com/53489303/200557340-1f010c57-0245-4cb4-b99f-871876ceb2bc.png)
 
-KB article - [How to generate dynamic number of series based on common items source in WPF Chart (SfChart)?](https://www.syncfusion.com/kb/7578/how-to-generate-dynamic-number-of-series-based-on-common-items-source-in-wpf-chart-sfchart)
+## Troubleshooting
+
+#### Path too long exception
+
+If you are facing a path too long exception when building this example project, close Visual Studio and rename the repository to a shorter name before building the project.
+
+For more details, refer to the KB on [How to generate dynamic number of series based on common items source in WPF Chart (SfChart)?](https://www.syncfusion.com/kb/7578/how-to-generate-dynamic-number-of-series-based-on-common-items-source-in-wpf-chart-sfchart).
+

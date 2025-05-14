@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.ObjectModel;
 
 namespace Common_ItemsSource_WPF
 {
@@ -26,7 +26,7 @@ namespace Common_ItemsSource_WPF
                     new PriceData() {Component = "Printer", Price = 180  },
                 }
             });
-            
+
             AnnualPriceCollection.Add(new AnnualPriceData()
             {
                 Year = "2013",
